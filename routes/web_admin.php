@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Auth::routes();
+Route::group(['middleware'=>['role:superadmin']], function () {
+    Route::get('/', 'HomeController@index')->name('admin.home');
 
-Route::get('/', 'HomeController@index')->name('admin.home');
+});
